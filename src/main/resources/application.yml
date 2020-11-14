@@ -1,0 +1,32 @@
+app:
+  auth-server: http://localhost:8888/
+  auth-server-uri: /auth/realms/test/protocol/openid-connect
+  auth-server-base: ${app.auth-server}${app.auth-server-uri}
+  auth-introspect-uri: ${app.auth-server-uri}/token/introspect
+
+micronaut:
+  application:
+    name: sample-micronaut-oauth2
+  security:
+    authentication: idtoken
+    endpoints:
+      login:
+        enabled: true
+    redirect:
+      login-success: /secure/anonymous
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          jwks:
+            keycloak:
+              url: ${app.auth-server-base}/certs
+    oauth2.clients.keycloak:
+      grant-type: password
+      client-id: micronaut
+      client-secret: 6faf28d5-ca45-4740-8516-38634510b85e
+      authorization:
+        url: ${app.auth-server-base}/auth
+      token:
+        url: ${app.auth-server-base}/token
+        auth-method: client-secret-post
