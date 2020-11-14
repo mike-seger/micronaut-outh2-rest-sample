@@ -9,8 +9,6 @@ docker run -d --name keycloak -p 8888:8080 -e KEYCLOAK_USER=micronaut \
     -v $(pwd)/keycloak/test-realm.json:/tmp/test-realm.json jboss/keycloak
 ```
 
-Check: 
-
 ## Links
 
 [jboss/keycloak](https://hub.docker.com/r/jboss/keycloak/)

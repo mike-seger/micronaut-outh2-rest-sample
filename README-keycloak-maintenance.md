@@ -48,18 +48,15 @@ This application makes use of the following endpoints:
    Save
 1. Go to menu: Users
 1. Add user test_viewer
+   Set names and e-mail
    Assign *viewer* role
    Credentials / Password: 123456
 1. Add user test_admin
+   Set names and e-mail
    Assign *admin* and *viewer* role
    Credentials / Password: 1234567
   
 ## Exporting the test realm
 ```
-docker exec -it keycloak /opt/jboss/keycloak/bin/standalone.sh \
--Djboss.socket.binding.port-offset=100 -Dkeycloak.migration.action=export \
--Dkeycloak.migration.provider=singleFile \
--Dkeycloak.migration.realmName=test \
--Dkeycloak.migration.usersExportStrategy=REALM_FILE \
--Dkeycloak.migration.file=/tmp/test-realm.json
+keycloak/export-realm.sh
 ```
