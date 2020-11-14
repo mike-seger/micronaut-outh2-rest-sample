@@ -2,6 +2,11 @@
 
 A micronaut oauth2 REST sample, derived from this [Blog Article](https://piotrminkowski.com/2020/09/21/micronaut-oauth2-and-security-with-keycloak/).
 
+## Running the Application
+```
+./gradlew run
+```
+
 ## Running Keycloak
 ```
 docker run -d --name keycloak -p 8888:8080 -e KEYCLOAK_USER=micronaut \
@@ -10,10 +15,10 @@ docker run -d --name keycloak -p 8888:8080 -e KEYCLOAK_USER=micronaut \
 ```
 ### Check
 ```
-curl -L -c /tmp/cookie.txt -b /tmp/cookie.txt -v http://localhost:8080/login -H "Content-Type: application/json" \
+curl -L -c /tmp/cookie.txt -b /tmp/cookie.txt -v http://localhost:8887/login -H "Content-Type: application/json" \
     -d "{\"username\":\"test_viewer\",\"password\": \"123456\"}"
 
-curl -L -v -c /tmp/cookie.txt -b /tmp/cookie.txt http://localhost:8080/secure/view
+curl -L -v -c /tmp/cookie.txt -b /tmp/cookie.txt http://localhost:8887/secure/view
 ```
 
 ## Links
