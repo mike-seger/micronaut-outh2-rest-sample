@@ -44,9 +44,6 @@ This application makes use of the following endpoints:
 1. Add realm: test
 1. Go to menu: Roles
 1. Add role  
-   Role name: admin
-   Save
-1. Add role  
    Role name: viewer
    Save
 1. Go to menu: Users

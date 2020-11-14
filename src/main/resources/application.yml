@@ -1,5 +1,5 @@
 app:
-  auth-server: http://localhost:8888/
+  auth-server: http://localhost:8888
   auth-server-uri: /auth/realms/test/protocol/openid-connect
   auth-server-base: ${app.auth-server}${app.auth-server-uri}
   auth-introspect-uri: ${app.auth-server-uri}/token/introspect

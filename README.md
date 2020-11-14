@@ -4,9 +4,12 @@ A micronaut oauth2 REST sample, derived from this [Blog Article](https://piotrmi
 
 ## Running Keycloak
 ```
-docker run -d --name keycloak -p 8888:8080 -e KEYCLOAK_USER=micronaut -e KEYCLOAK_PASSWORD=micronaut123 \
-    -e KEYCLOAK_IMPORT=/tmp/master-realm.json -v $(pwd)/master-realm.json:/tmp/master-realm.json jboss/keycloak
+docker run -d --name keycloak -p 8888:8080 -e KEYCLOAK_USER=micronaut \
+    -e KEYCLOAK_PASSWORD=micronaut123 -e KEYCLOAK_IMPORT=/tmp/test-realm.json \
+    -v $(pwd)/keycloak/test-realm.json:/tmp/test-realm.json jboss/keycloak
 ```
+
+Check: 
 
 ## Links
 

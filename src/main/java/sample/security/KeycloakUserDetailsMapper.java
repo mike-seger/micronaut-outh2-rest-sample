@@ -61,5 +61,4 @@ public class KeycloakUserDetailsMapper implements OauthUserDetailsMapper {
 			return new UserDetails(user.body().getUsername(), user.body().getRoles(), attrs);
 		});
 	}
-
 }
