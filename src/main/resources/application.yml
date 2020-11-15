@@ -1,8 +1,7 @@
 app:
   auth-server: http://localhost:8888
-  auth-server-uri: /auth/realms/test/protocol/openid-connect
-  auth-server-base: ${app.auth-server}${app.auth-server-uri}
-  auth-introspect-uri: ${app.auth-server-uri}/token/introspect
+  auth-server-base: ${app.auth-server}/auth/realms/test/protocol/openid-connect
+  auth-introspect-uri: ${micronaut.security.oauth2.clients.keycloak.token.url}/introspect
 
 micronaut:
   application:

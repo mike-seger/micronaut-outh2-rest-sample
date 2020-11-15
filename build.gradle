@@ -4,7 +4,6 @@ plugins {
 }
 
 version "0.1"
-group "test"
 
 repositories {
     mavenCentral()

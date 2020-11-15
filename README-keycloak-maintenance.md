@@ -1,8 +1,14 @@
 # Keycloak Maintenance
 
 ## Initial Configuration
+
+This configuration is already contained within test-realm.json.
+This section describes how it has been produced.
+
+### Create Realm and Client
 1. Open: http://localhost:8888/
 1. Go to: *Administration Console*
+1. Create a new realm *test*
 1. Enter credentials used in *docker* command above:  
    micronaut / micronaut123
 1. Choose menu Clients
@@ -17,10 +23,10 @@
 1. Copy the client secret value into: resources/application.yml  
    at: micronaut.security.oauth2.clients.keycloak.client-secret
    
-## Check configuration
+### Check configuration
 http://localhost:8888/auth/realms/master/.well-known/openid-configuration
 
-Filter openid-connect endpoints using this command:
+List openid-connect endpoints using this command:
 ```
 $ curl -s "http://localhost:8888/auth/realms/master/.well-known/openid-configuration" | \
     jq . | grep http | tr -d '", '
@@ -40,7 +46,7 @@ This application makes use of the following endpoints:
 - introspection_endpoint
 - jwks_uri
 
-## Creating Realm, Users and Roles
+### Creating Realm, Users and Roles
 1. Add realm: test
 1. Go to menu: Roles
 1. Add role  
@@ -55,8 +61,14 @@ This application makes use of the following endpoints:
    Set names and e-mail
    Assign *admin* and *viewer* role
    Credentials / Password: 1234567
-  
-## Exporting the test realm
+ 
+## Maintenance
+
+### Exporting the test realm
+Manual changes in http://localhost:8888/ can be exported in order to be tracked by GIT and re-used when rebuilding the docker container.
+
+The command
 ```
 keycloak/export-realm.sh
 ```
+will update keycloak/test-realm.json.
